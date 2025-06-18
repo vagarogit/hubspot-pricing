@@ -21,10 +21,10 @@ export default function PricingCalculator() {
 
   return (
     <div className="container mx-auto justify-center flex">
-      <div className="bg-white rounded-3xl shadow-xl p-10 max-w-lg w-full border border-ink-lightest min-h-[700px]">
+      <div className="bg-white rounded-3xl shadow-(--card-shadow) p-10 max-w-lg w-full border border-ink-light min-h-[610px]">
         {/* Location Toggle */}
         <div
-          className="tab-inner-shadow mx-auto mb-10 h-14 w-full max-w-[408px] cursor-pointer rounded-full p-1"
+          className="tab-inner-shadow mx-auto mb-10 h-14 w-full max-w-[408px] cursor-pointer rounded-full p-1 bg-ink-lightest"
           onClick={() => setLocationType(locationType === 'one' ? 'multiple' : 'one')}
         >
           <div className="relative mx-auto h-12 w-full max-w-[400px]">
@@ -92,9 +92,9 @@ export default function PricingCalculator() {
             {/* Pricing Display */}
             <div className="text-center mb-10">
               <h2 className="text-2xl font-medium text-charcoal mb-6">Here's what you'll pay:</h2>
-              <div className="mb-3">
-                <span className="text-6xl font-bold text-charcoal">
-                  ${totalPrice.toFixed(2)}
+              <div className="mb-3 flex items-center justify-center h-full">
+                <span className="text-7xl font-bold text-charcoal">
+                  <span className="text-2xl align-top text-charcoal">$</span>{totalPrice.toFixed(2)}
                 </span>
               </div>
               <p className="text-ink-dark text-lg">per month</p>
@@ -107,7 +107,7 @@ export default function PricingCalculator() {
                 <button
                   key={option}
                   onClick={() => setTeamSize(option)}
-                  className={`flex-1 py-2.5 px-3 rounded text-base font-medium transition-all duration-200 text-nowrap ${
+                  className={`flex-1 py-2.5 px-3 rounded text-base font-medium transition-all duration-200 text-nowrap h-11 ${
                     teamSize === option
                       ? 'bg-charcoal text-white shadow-md'
                       : 'text-ink-dark hover:text-charcoal'
@@ -121,12 +121,12 @@ export default function PricingCalculator() {
             {/* Action Buttons */}
             <div className="space-y-4">
               <button 
-                className="w-full hover:bg-primary-hover text-white font-semibold py-4 px-8 rounded-xl text-lg transition-colors duration-200 shadow-md hover:shadow-lg bg-primary"
+                className="w-full md:max-w-[200px] hover:bg-primary-hover text-white font-semibold py-4 px-8 rounded text-lg transition-colors duration-200  bg-primary cursor-pointer"
               >
                 Start Free Trial
               </button>
               
-              <button className="w-full text-bluelink hover:text-blue-dark font-medium flex items-center justify-center gap-2 text-base transition-colors duration-200">
+              <button className="w-full text-bluelink hover:text-blue-dark font-medium flex items-center justify-center gap-2 text-base transition-colors duration-200 cursor-pointer">
                 Contact Sales
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
