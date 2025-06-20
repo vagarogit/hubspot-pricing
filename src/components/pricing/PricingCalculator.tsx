@@ -21,10 +21,17 @@ export default function PricingCalculator() {
   const totalPrice = pricingTiers[teamSize]
   const selected = teamSizeOptions.indexOf(teamSize)
   const signupLink = `https://www.vagaro.com/signup-1?licence=${selected + 1}${promoCode}`
+  
+  const getCalendarText = (teamSize: TeamSizeOption): string => {
+    if (teamSize === 'Just Me') return '1 bookable calendar'
+    if (teamSize === '7+') return '7 or more bookable calendars'
+    const num = parseInt(teamSize)
+    return `${num} bookable calendars`
+  }
 
   return (
     <div className="container mx-auto justify-center flex">
-      <div className="bg-white rounded-3xl shadow-(--card-shadow) p-10 max-w-lg w-full border border-ink-light min-h-[610px]">
+      <div className="bg-white rounded-3xl shadow-(--card-shadow) p-8 max-w-[468px] w-full  border border-ink-light min-h-[610px]">
         {/* Location Toggle */}
         <div
           className="tab-inner-shadow mx-auto mb-10 h-14 w-full max-w-[408px] cursor-pointer rounded-full p-1 bg-ink-lightest"
@@ -93,19 +100,20 @@ export default function PricingCalculator() {
         ) : (
           <>
             {/* Pricing Display */}
-            <div className="text-center mb-10">
+            <div className="text-center mb-8">
               <h2 className="text-2xl font-medium text-charcoal mb-6">Here's what you'll pay:</h2>
-              <div className="mb-3 flex items-center justify-center h-full">
-                <span className="text-7xl font-bold text-charcoal">
+              <div className="mb-1 flex items-center justify-center">
+                <span className="text-7xl font-bold text-charcoal py-0">
                   <span className="text-2xl align-top text-charcoal">$</span>{totalPrice.toFixed(2)}
                 </span>
               </div>
               <p className="text-ink-dark text-lg">per month</p>
-              <p className="text-ink-light text-base mt-2">1 bookable calendar</p>
+              <p className="text-ink-dark/70 text-sm mt-2">{getCalendarText(teamSize)}</p>
+              <span className="text-ink-dark/70 text-sm">Exclusive offer!</span>
             </div>
 
             {/* Team Size Selector */}
-            <div className="bg-ink-lightest rounded p-1 mb-10 flex gap-1">
+            <div className="bg-ink-lightest rounded-xl p-1 mb-4 flex gap-0 px-2">
               {teamSizeOptions.map((option) => (
                 <button
                   key={option}
@@ -120,21 +128,22 @@ export default function PricingCalculator() {
                 </button>
               ))}
             </div>
-
+              <div className="flex justify-center pb-2"><span className="text-ink-dark/50 text-sm">*Cancel anytime with no cancellation fees</span></div>
+              <div className="flex justify-center pb-4"><span className="text-ink-dark/50 text-sm">Exclusions apply</span></div>
             {/* Action Buttons */}
-            <div className="space-y-4 flex flex-col items-center justify-center gap-4">
-              <a href={signupLink} target="_blank" rel="noopener noreferrer"
-                className="w-full md:max-w-[200px] hover:bg-primary-hover text-white font-semibold py-4 px-8 rounded text-lg transition-colors duration-200  bg-primary cursor-pointer"
+            <div className="space-y-4 flex flex-col items-center justify-center gap-2">
+              <a href={signupLink} id="start-free-trial" target="_blank" rel="noopener noreferrer"
+                className="w-full md:max-w-[200px] hover:bg-primary-hover text-white font-semibold py-4 px-8 rounded text-base transition-colors duration-200 leading-relaxed  bg-primary cursor-pointer"
               >
                 Start Free Trial
               </a>
               
-              <button className="w-full text-bluelink hover:text-blue-dark font-medium flex items-center justify-center gap-2 text-base transition-colors duration-200 cursor-pointer">
+              <a href="https://www.vagaro.com/pro/contact-sales-team" id="contact-sales-team" target="_blank" rel="noopener noreferrer" className="w-full text-bluelink hover:text-blue-dark font-medium flex items-center justify-center gap-2 text-base transition-colors duration-200 cursor-pointer">
                 Contact Sales
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </button>
+              </a>
             </div>
           </>
         )}
