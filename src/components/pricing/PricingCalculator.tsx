@@ -5,6 +5,7 @@ type TeamSizeOption = 'Just Me' | '2' | '3' | '4' | '5' | '6' | '7+'
 export default function PricingCalculator() {
   const [locationType, setLocationType] = useState<'one' | 'multiple'>('one')
   const [teamSize, setTeamSize] = useState<TeamSizeOption>('Just Me')
+  const promoCode = ''
   
   const teamSizeOptions: TeamSizeOption[] = ['Just Me', '2', '3', '4', '5', '6', '7+']
   const pricingTiers: Record<TeamSizeOption, number> = {
@@ -18,6 +19,8 @@ export default function PricingCalculator() {
   }
   
   const totalPrice = pricingTiers[teamSize]
+  const selected = teamSizeOptions.indexOf(teamSize)
+  const signupLink = `https://www.vagaro.com/signup-1?licence=${selected + 1}${promoCode}`
 
   return (
     <div className="container mx-auto justify-center flex">
@@ -119,12 +122,12 @@ export default function PricingCalculator() {
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-4">
-              <button 
+            <div className="space-y-4 flex flex-col items-center justify-center gap-4">
+              <a href={signupLink} target="_blank" rel="noopener noreferrer"
                 className="w-full md:max-w-[200px] hover:bg-primary-hover text-white font-semibold py-4 px-8 rounded text-lg transition-colors duration-200  bg-primary cursor-pointer"
               >
                 Start Free Trial
-              </button>
+              </a>
               
               <button className="w-full text-bluelink hover:text-blue-dark font-medium flex items-center justify-center gap-2 text-base transition-colors duration-200 cursor-pointer">
                 Contact Sales
