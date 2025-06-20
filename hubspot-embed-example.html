@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HubSpot Pricing Widget Example</title>
+</head>
+<body>
+    <!-- 
+    HubSpot Pricing Calculator Widget
+    
+    To use this widget in your HubSpot landing page:
+    
+    1. Upload the generated files to your HubSpot file manager:
+       - hubspot-pricing-widget.js
+       - hubspot-pricing-widget.css
+    
+    2. In your HubSpot page editor, add a Custom HTML module
+    
+    3. Paste the following code into the module:
+    -->
+    
+    <!-- Container for the pricing calculator -->
+    <div id="hubspot-pricing-calculator"></div>
+    
+    <!-- Load the widget CSS -->
+    <link rel="stylesheet" href="https://YOUR-HUBSPOT-DOMAIN.com/path-to/hubspot-pricing-widget.css">
+    
+    <!-- Load the widget JavaScript -->
+    <script src="https://YOUR-HUBSPOT-DOMAIN.com/path-to/hubspot-pricing-widget.js"></script>
+    
+    <!-- Initialize the widget -->
+    <script>
+        // Initialize the pricing calculator widget
+        if (window.HubSpotPricingWidget) {
+            window.HubSpotPricingWidget.init('hubspot-pricing-calculator');
+        }
+    </script>
+    
+    <!-- 
+    Alternative: If you're testing locally or using a CDN, you can use these paths:
+    
+    <link rel="stylesheet" href="./dist/hubspot-pricing-widget.css">
+    <script src="./dist/hubspot-pricing-widget.js"></script>
+    -->
+</body>
+</html>
