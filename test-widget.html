@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test HubSpot Pricing Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .status {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .status.loading {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>HubSpot Pricing Widget Test Page</h1>
+            <p>This page tests the locally built widget files</p>
+        </div>
+
+        <div id="status" class="status loading">Loading widget...</div>
+
+        <!-- Container for the pricing calculator widget -->
+        <div id="hubspot-pricing-calculator"></div>
+
+        <!-- Test with multiple widgets -->
+        <h2 style="margin-top: 50px;">Second Widget Instance</h2>
+        <div id="hubspot-pricing-calculator-2"></div>
+    </div>
+
+    <!-- Load the widget CSS from local dist folder -->
+    <link rel="stylesheet" href="./dist/hubspot-pricing-widget.css">
+    
+    <!-- Load the widget JavaScript from local dist folder -->
+    <script src="./dist/hubspot-pricing-widget.iife.js"></script>
+    
+    <!-- Initialize the widget -->
+    <script>
+        // Function to update status
+        function updateStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = 'status ' + type;
+        }
+
+        // Check if widget loaded
+        if (typeof window.HubSpotPricingWidget === 'undefined') {
+            updateStatus('Error: HubSpotPricingWidget not found on window object', 'error');
+            console.error('Widget script loaded but HubSpotPricingWidget is not defined');
+        } else {
+            try {
+                // Initialize first widget
+                window.HubSpotPricingWidget.init('hubspot-pricing-calculator');
+                
+                // Initialize second widget to test multiple instances
+                window.HubSpotPricingWidget.init('hubspot-pricing-calculator-2');
+                
+                updateStatus('Widget loaded successfully!', 'success');
+                console.log('Widget initialized successfully');
+            } catch (error) {
+                updateStatus('Error initializing widget: ' + error.message, 'error');
+                console.error('Widget initialization error:', error);
+            }
+        }
+
+        // Log any console errors
+        window.addEventListener('error', function(event) {
+            console.error('Global error:', event.error);
+            updateStatus('Runtime error: ' + event.error.message, 'error');
+        });
+    </script>
+</body>
+</html>
