@@ -101,7 +101,7 @@ export default function PricingCalculator() {
           <>
             {/* Pricing Display */}
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-medium text-charcoal mb-6">Here's what you'll pay:</h2>
+              <h2 className="pay-text text-2xl font-medium text-charcoal mb-6">Here's what you'll pay:</h2>
               <div className="mb-1 flex items-center justify-center">
                 <span className="text-7xl font-bold text-charcoal py-0">
                   <span className="text-2xl align-top text-charcoal">$</span>{totalPrice.toFixed(2)}
@@ -133,7 +133,7 @@ export default function PricingCalculator() {
             {/* Action Buttons */}
             <div className="space-y-4 flex flex-col items-center justify-center gap-2">
               <a href={signupLink} id="start-free-trial" target="_blank" rel="noopener noreferrer"
-                className="w-full md:max-w-[200px] hover:bg-primary-hover font-semibold py-4 px-8 rounded text-base transition-colors duration-200 leading-relaxed  bg-primary cursor-pointer text-[#FFFFFF]"
+                className="pricing-link w-full md:max-w-[200px] hover:bg-primary-hover font-semibold py-4 px-8 rounded text-base transition-colors duration-200 leading-relaxed  bg-primary cursor-pointer text-[#FFFFFF]"
                 style={{color: 'white !important'}}
               >
                 Start Free Trial
