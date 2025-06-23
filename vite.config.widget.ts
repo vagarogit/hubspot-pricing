@@ -12,16 +12,15 @@ export default defineConfig({
       preventAssignment: true,
       values: {
         'process.env.NODE_ENV': '"production"',
-        'process.env': '{"NODE_ENV":"production"}',
-        'process.emit': '(function(){})',
+        'process.env': 'undefined',
+        'process.emit': 'undefined',
         'process': 'undefined'
       }
     })
   ],
   define: {
     'process.env.NODE_ENV': '"production"',
-    'process.env': '{"NODE_ENV":"production"}',
-    'process.emit': '(function(){})',
+    'process.env': 'undefined',
     'process': 'undefined',
     global: 'globalThis'
   },

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Test</title>
+    <link rel="stylesheet" href="./dist/hubspot-pricing-widget.css">
+</head>
+<body>
+    <h1>HubSpot Pricing Widget Test</h1>
+    <div id="hubspot-pricing-widget"></div>
+    
+    <script src="./dist/hubspot-pricing-widget.iife.js"></script>
+    <script>
+        try {
+            console.log('Widget script loaded successfully');
+            console.log('HubSpotPricingWidget:', typeof window.HubSpotPricingWidget);
+            
+            // Try to initialize the widget
+            if (window.HubSpotPricingWidget) {
+                console.log('Initializing widget...');
+                // Add any initialization code here if needed
+            }
+        } catch (error) {
+            console.error('Widget error:', error);
+        }
+    </script>
+</body>
+</html> 
