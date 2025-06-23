@@ -30,16 +30,16 @@ export default function PricingCalculator() {
   }
 
   return (
-    <div className="!container !mx-auto !justify-center !flex">
-      <div className="!bg-white !rounded-3xl !shadow-(--card-shadow) !p-8 !max-w-[468px] !w-full  !border !border-ink-light !min-h-[610px]">
+    <div className="container mx-auto justify-center flex">
+      <div className="bg-white rounded-3xl shadow-(--card-shadow) p-8 max-w-[468px] w-full  border border-ink-light min-h-[610px]">
         {/* Location Toggle */}
         <div
-          className="!tab-inner-shadow !mx-auto !mb-10 !h-14 !w-full !max-w-[408px] !cursor-pointer !rounded-full !p-1 !bg-ink-lightest"
+          className="tab-inner-shadow mx-auto mb-10 h-14 w-full max-w-[408px] cursor-pointer rounded-full p-1 bg-ink-lightest"
           onClick={() => setLocationType(locationType === 'one' ? 'multiple' : 'one')}
         >
-          <div className="!relative !mx-auto !h-12 !w-full !max-w-[400px]">
+          <div className="relative mx-auto h-12 w-full max-w-[400px]">
             <div
-              className={`!absolute !bottom-0 !top-0 !flex !w-1/2 !items-center !justify-center !rounded-full !font-semibold !text-[#777777] !transition-all !duration-500 !hover:!text-black ${
+              className={`absolute bottom-0 top-0 flex w-1/2 items-center justify-center rounded-full font-semibold text-[#777777] transition-all duration-500 hover:text-black ${
                 locationType === 'multiple' ? 'left-0' : 'left-1/2'
               }`}
             >
@@ -48,7 +48,7 @@ export default function PricingCalculator() {
                 : 'One Location'}
             </div>
             <div
-              className={`!absolute !bottom-0 !top-0 !flex !w-1/2 !items-center !justify-center !rounded-full !bg-charcoal !text-white !transition-all !duration-500 ${
+              className={`absolute bottom-0 top-0 flex w-1/2 items-center justify-center rounded-full bg-charcoal text-white transition-all duration-500 ${
                 locationType === 'multiple' ? 'left-1/2' : 'left-0'
               }`}
             >
@@ -60,7 +60,7 @@ export default function PricingCalculator() {
         {locationType === 'multiple' ? (
           <>
             {/* Enterprise-specific content */}
-           <div className="!flex !flex-col !gap-4">
+           <div className="flex flex-col gap-4">
            <img
               src="https://us-west-2.graphassets.com/AalLHDRueT6SDLkGLppQVz/4Ayj6CA9Qaeg0Vbr5jgM"
               alt="Enterprise Icon"
@@ -68,32 +68,29 @@ export default function PricingCalculator() {
               width="207"
               height="95"
             />
-            <h2 className="!mb-4 !text-center !text-2xl !font-bold !tracking-tight !text-gray-900 md:block">
+            <h2 className="mb-4 text-center text-2xl font-bold tracking-tight text-gray-900 md:block">
               Enterprise Business Software
             </h2>
-            <p className="!mb-4 !text-center !text-base !text-gray-400">
+            <p className="mb-4 text-center text-base text-gray-400">
               Go enterprise for Vagaro&apos;s powerful and intuitive
               <br />
               multi-location platform with advanced admin
               <br /> features and security.
             </p>
-            <div className="!flex !justify-center !gap-4">
-                <div className="!flex !justify-center">
-                    <button className="!bg-none !text-charcoal !px-4 !py-2 !rounded-2 !h-12 !flex !items-center !gap-2">
-                      <svg className="!w-4 !h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      Call us Now (925) 515-5055
+            <div className="flex justify-center gap-4">
+                <div className="flex justify-center">
+                    <button className="bg-none text-charcoal px-4 py-2 rounded-2 h-12">
+                   Call us Now (925) 515-5055
                     </button>
                 </div>
             </div>
-            <div className="!flex !justify-center">
-              <button className="!bg-primary !text-white !px-4 !py-2 !rounded-2 !h-12">
+            <div className="flex justify-center">
+              <button className="bg-primary text-white px-4 py-2 rounded-2 h-12">
                 Contact Multi-location Team
               </button>
             </div>
-            <div className="!flex !justify-center">
-              <button className="!bg-none !text-blue-default !px-4 !py-2 ">
+            <div className="flex justify-center">
+              <button className="bg-none text-blue-default px-4 py-2 ">
                 Learn more
               </button>
             </div>
@@ -103,47 +100,48 @@ export default function PricingCalculator() {
         ) : (
           <>
             {/* Pricing Display */}
-            <div className="!text-center !mb-8">
-              <h2 className="!text-2xl !font-medium !text-charcoal !mb-6">Here's what you'll pay:</h2>
-              <div className="!mb-1 !flex !items-center !justify-center">
-                <span className="!text-7xl !font-bold !text-charcoal !py-0">
-                  <span className="!text-2xl !align-top !text-charcoal">$</span>{totalPrice.toFixed(2)}
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-medium text-charcoal mb-6">Here's what you'll pay:</h2>
+              <div className="mb-1 flex items-center justify-center">
+                <span className="text-7xl font-bold text-charcoal py-0">
+                  <span className="text-2xl align-top text-charcoal">$</span>{totalPrice.toFixed(2)}
                 </span>
               </div>
-              <p className="!text-ink-dark !text-lg">per month</p>
-              <p className="!text-ink-dark/70 !text-sm !mt-2">{getCalendarText(teamSize)}</p>
-              <span className="!text-ink-dark/70 !text-sm">Exclusive offer!</span>
+              <p className="text-ink-dark text-lg">per month</p>
+              <p className="text-ink-dark/70 text-sm mt-2">{getCalendarText(teamSize)}</p>
+              <span className="text-ink-dark/70 text-sm">Exclusive offer!</span>
             </div>
 
             {/* Team Size Selector */}
-            <div className="!bg-ink-lightest !rounded-xl !p-1 !mb-4 !flex !gap-0 !px-2">
+            <div className="bg-ink-lightest rounded-xl p-1 mb-4 flex gap-0 px-2">
               {teamSizeOptions.map((option) => (
                 <button
                   key={option}
                   onClick={() => setTeamSize(option)}
-                  className={`!flex-1 !py-2.5 !px-3 !rounded !text-base !font-medium !transition-all !duration-200 !text-nowrap !h-11 ${
+                  className={`flex-1 py-2.5 px-3 rounded text-base font-medium transition-all duration-200 text-nowrap h-11 ${
                     teamSize === option
-                      ? '!bg-charcoal !text-white !shadow-md'
-                      : '!text-ink-dark hover:!text-charcoal'
+                      ? 'bg-charcoal text-white shadow-md'
+                      : 'text-ink-dark hover:text-charcoal'
                   }`}
                 >
                   {option}
                 </button>
               ))}
             </div>
-              <div className="!flex !justify-center !pb-2"><span className="!text-ink-dark/50 !text-sm">*Cancel anytime with no cancellation fees</span></div>
-              <div className="!flex !justify-center !pb-4"><span className="!text-ink-dark/50 !text-sm">Exclusions apply</span></div>
+              <div className="flex justify-center pb-2"><span className="text-ink-dark/50 text-sm">*Cancel anytime with no cancellation fees</span></div>
+              <div className="flex justify-center pb-4"><span className="text-ink-dark/50 text-sm">Exclusions apply</span></div>
             {/* Action Buttons */}
-            <div className="!space-y-4 !flex !flex-col !items-center !justify-center !gap-2">
+            <div className="space-y-4 flex flex-col items-center justify-center gap-2">
               <a href={signupLink} id="start-free-trial" target="_blank" rel="noopener noreferrer"
-                className="!w-full md:!max-w-[200px] hover:!bg-primary-hover !text-white !font-semibold !py-4 !px-8 !rounded !text-base !transition-colors !duration-200 !leading-relaxed !bg-primary !cursor-pointer"
+                className="w-full md:max-w-[200px] hover:bg-primary-hover font-semibold py-4 px-8 rounded text-base transition-colors duration-200 leading-relaxed  bg-primary cursor-pointer"
+                style={{color: 'white !important'}}
               >
                 Start Free Trial
               </a>
               
-              <a href="https://www.vagaro.com/pro/contact-sales-team" id="contact-sales-team" target="_blank" rel="noopener noreferrer" className="!w-full !text-bluelink hover:!text-blue-dark !font-medium !flex !items-center !justify-center !gap-2 !text-base !transition-colors !duration-200 !cursor-pointer">
+              <a href="https://www.vagaro.com/pro/contact-sales-team" id="contact-sales-team" target="_blank" rel="noopener noreferrer" className="w-full text-bluelink hover:text-blue-dark font-medium flex items-center justify-center gap-2 text-base transition-colors duration-200 cursor-pointer">
                 Contact Sales
-                <svg className="!w-4 !h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </a>
