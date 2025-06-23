@@ -133,7 +133,7 @@ export default function PricingCalculator() {
             {/* Action Buttons */}
             <div className="space-y-4 flex flex-col items-center justify-center gap-2">
               <a href={signupLink} id="start-free-trial" target="_blank" rel="noopener noreferrer"
-                className="w-full md:max-w-[200px] hover:bg-primary-hover font-semibold py-4 px-8 rounded text-base transition-colors duration-200 leading-relaxed  bg-primary cursor-pointer"
+                className="w-full md:max-w-[200px] hover:bg-primary-hover font-semibold py-4 px-8 rounded text-base transition-colors duration-200 leading-relaxed  bg-primary cursor-pointer text-[#FFFFFF]"
                 style={{color: 'white !important'}}
               >
                 Start Free Trial
