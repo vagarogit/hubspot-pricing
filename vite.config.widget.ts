@@ -9,14 +9,22 @@ export default defineConfig({
     react(),
     tailwindcss(),
     replace({
-      preventAssignment: false,
+      preventAssignment: true,
       values: {
-        'process.env.NODE_ENV': JSON.stringify('production'),
-        'process.env': JSON.stringify({ NODE_ENV: 'production' }),
-        'process': JSON.stringify({ env: { NODE_ENV: 'production' } })
+        'process.env.NODE_ENV': '"production"',
+        'process.env': '{"NODE_ENV":"production"}',
+        'process.emit': '(function(){})',
+        'process': 'undefined'
       }
     })
   ],
+  define: {
+    'process.env.NODE_ENV': '"production"',
+    'process.env': '{"NODE_ENV":"production"}',
+    'process.emit': '(function(){})',
+    'process': 'undefined',
+    global: 'globalThis'
+  },
   build: {
     lib: {
       entry: resolve(__dirname, 'src/widget.tsx'),
@@ -25,8 +33,10 @@ export default defineConfig({
       formats: ['iife']
     },
     rollupOptions: {
+      external: [],
       output: {
-        assetFileNames: 'hubspot-pricing-widget.[ext]'
+        assetFileNames: 'hubspot-pricing-widget.[ext]',
+        globals: {}
       }
     },
     cssCodeSplit: false,
