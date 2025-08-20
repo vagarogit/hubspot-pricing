@@ -35,9 +35,20 @@ export default function PricingCalculator() {
     "7+": 83.99,
   };
 
+  const licenseTiers: Record<TeamSizeOption, number> = {
+    "Just Me": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7+": 7,
+  };
+
   const totalPrice = pricingTiers[teamSize];
-  const signupLink = `https://www.vagaro.com/pro/pricing${
-    promoCode ? `?promocode=${promoCode}` : ""
+  const selectedLicense = licenseTiers[teamSize];
+  const signupLink = `https://www.vagaro.com/signup-1?licence=${selectedLicense}${
+    promoCode ? `&promocode=${promoCode}` : ""
   }`;
 
   const getCalendarText = (teamSize: TeamSizeOption): string => {
