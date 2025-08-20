@@ -19,3 +19,5 @@ https://www.vagaro.com/pro/pricing?promocode=salh
 https://www.vagaro.com/pro/pricing?promocode=saraha
 https://www.vagaro.com/pro/pricing?promocode=quinb
 https://www.vagaro.com/pro/pricing?promocode=ziyau
+
+https://www.vagaro.com/pro/pricing?promocode=testcode
